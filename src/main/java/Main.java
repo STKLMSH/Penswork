@@ -1,3 +1,4 @@
+import calculator.StandardCalculator;
 import model.*;
 import notification.*;
 
@@ -9,8 +10,8 @@ import java.math.BigDecimal;
 void main() {
     PensAppService service = new PensAppService(
             new InMemoryAppRep(),
-            new StandartPensCalc(),
-            new Notifier());
+            new StandardCalculator(),
+            new ConsoleNotifier());
 
     Client client = new Client(1, "@sunboy", "Геннадий Герасимович", "301016A001PB1");
     client.getEmployHistory().addRecord("000 Отмыв", "Продавец-консультант",
