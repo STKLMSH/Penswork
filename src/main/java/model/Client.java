@@ -14,7 +14,7 @@ public final class Client extends User {
 
     @Override
     public Role getRole() {
-        return Role.Client;
+        return Role.CLIENT;
     }
 
     public String getNumber() {
