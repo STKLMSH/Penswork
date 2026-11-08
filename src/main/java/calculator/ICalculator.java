@@ -1,5 +1,8 @@
 package calculator;
 
+import model.EmployHistory;
+
 public interface ICalculator {
-    double calculate(int totalYears, double averageSalary);
+
+    PensForecast calculate(EmployHistory history);
 }
