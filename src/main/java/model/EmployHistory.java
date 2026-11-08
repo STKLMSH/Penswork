@@ -15,11 +15,11 @@ public final class EmployHistory {
 
     public EmployRecord addRecord(String employer, String position,
                                   LocalDate startDate, LocalDate endDate,
-                                  BigDecimal mothlySalary) {
-        EmployRecord record = new EmployRecord(employer, position, startDate, endDate, mothlySalary);
+                                  BigDecimal monthlySalary) {
+        EmployRecord record = new EmployRecord(employer, position, startDate, endDate, monthlySalary);
         records.stream()
                 .filter(record::overlaps)
-                .findList()
+                .findFirst()
                 .ifPresent(existing -> {
                     throw new IllegalArgumentException();
                 });
@@ -27,7 +27,7 @@ public final class EmployHistory {
         records.sort((a, b) -> a.getStartDate().compareTo(b.getStartDate())));
         return record;
     }
-    
+
     public List<EmployRecord> getRecords() {
         return Collections.unmodifiableList(records);
     }
@@ -38,12 +38,12 @@ public final class EmployHistory {
 
     public long getTotalMonths() {
         return records.stream()
-                .mapToLong(EmployRecord::getMothsWorked)
+                .mapToLong(EmployRecord::getMonthsWorked)
                 .sum();
     }
 
     public int getTotalYears() {
-        return (int) (getTotalMoths() / 12);
+        return (int) (getTotalMonths() / 12);
     }
 
     public BigDecimal getAverageMonthlySalary() {
