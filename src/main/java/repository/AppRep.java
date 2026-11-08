@@ -13,7 +13,7 @@ public interface AppRep {
 
     PensApp save(PensApp app);
 
-    Optional<PensApp> findBYId(long id);
+    Optional<PensApp> findById(long id);
 
     List<PensApp> findAll();
 

@@ -1,6 +1,7 @@
 import calculator.StandardCalculator;
 import model.*;
 import notification.*;
+import repository.InMemoryAppRep;
 
 import java.util.Scanner;
 import java.time.LocalDate;
