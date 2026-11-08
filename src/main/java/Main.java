@@ -1,9 +1,5 @@
-import calculator.*;
 import model.*;
 import notification.*;
-import repository.*;
-import service.*;
-import ui.*;
 
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -14,7 +10,7 @@ void main() {
     PensAppService service = new PensAppService(
             new InMemoryAppRep(),
             new StandartPensCalc(),
-            new ConsoleNotifier());
+            new Notifier());
 
     Client client = new Client(1, "@sunboy", "Геннадий Герасимович", "301016A001PB1");
     client.getEmployHistory().addRecord("000 Отмыв", "Продавец-консультант",
