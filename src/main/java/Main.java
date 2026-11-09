@@ -3,6 +3,7 @@ import model.*;
 import notification.*;
 import repository.InMemoryAppRep;
 import service.PensAppService;
+import ui.*;
 
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ void main() {
     client.getEmployHistory().addRecord("000 Отмыв", "Продавец-консультант",
             LocalDate.of(1999, 5, 24), LocalDate.of(2009, 6, 7), new BigDecimal("1000"));
     client.getEmployHistory().addRecord("000 Греб", "Старший продавец-консультант",
-            LocalDate.of(2009, 9, 11), new BigDecimal("2000.00"));
+            LocalDate.of(2009, 9, 11), null,  new BigDecimal("2000.00"));
     Admin admin = new Admin(100, "admin", "Владимир Владимирович");
 
     Charset consoleCharset = Charset.forName(
