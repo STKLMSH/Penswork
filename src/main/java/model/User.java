@@ -25,16 +25,16 @@ public abstract class User {
         return id;
     }
 
-    public long getLogin() {
+    public String getLogin() {
         return login;
     }
-    public long getFullName() {
+    public String getFullName() {
         return fullName;
     }
 
     @Override
-    public boolean equals (Objects o) {
-        if (this == 0) return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
         if (!(o instanceof User other)) return false;
         return id == other.id && getRole() == other.getRole();
     }
@@ -45,7 +45,7 @@ public abstract class User {
     }
 
     @Override
-    public String toSring() {
+    public String toString() {
         return fullName + " (" + getRole().getTitle() + ", " + login + ")";
     }
 }
