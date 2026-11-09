@@ -29,15 +29,15 @@ public final class PensAppService {
 
     public PensApp submit(Client client) {
         if (client.getEmployHistory().isEmpty()) {
-            throw new BusinessRuleException();
+            throw new BusinessRuleException("Трудовая книга пуста");
         }
         boolean hasActive = repository.findByApplicant(client).stream()
                 .anyMatch(a -> a.getStatus().isUnderReview());
         if (hasActive) {
-            throw new BusinessRuleException();
+            throw new BusinessRuleException("Уже рассматривается другое заявление");
         }
         PensApp app = repository.save(new PensApp(repository.nextId(), client));
-        notifier.notify(client, "Заявление №" + application.getId() + " принято и поставлено в очередь");
+        notifier.notify(client, "Заявление №" + app.getId() + " принято и поставлено в очередь");
         return app;
     }
 
@@ -52,7 +52,7 @@ public final class PensAppService {
 
     public  PensApp approve(long appId) {
         PensApp app = get(appId);
-        PensForecast forecast(app.getApplicant());
+        PensForecast forecast = forecast(app.getApplicant());
         if (!forecast.eligible())
         {
             throw new BusinessRuleException("Недостаточно стажа для назначения пенсии ("
@@ -65,7 +65,7 @@ public final class PensAppService {
         return app;
     }
 
-    public PensApp reject(long appId) {
+    public PensApp reject(long appId, String reason) {
         PensApp app = get(appId);
         app.reject(reason);
         repository.save(app);
