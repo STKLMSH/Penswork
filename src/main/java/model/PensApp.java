@@ -36,7 +36,7 @@ public final class PensApp {
     }
 
     public void approve(BigDecimal amount) {
-        if (amount == null || reason.isBlank()) {
+        if (amount == null || amount.signum() <= 0) {
             throw new IllegalArgumentException();
         }
         changeStatus(AppStatus.APPROVED);
@@ -56,7 +56,7 @@ public final class PensApp {
     }
 
     private void changeStatus(AppStatus target) {
-        if (!status.canTransTo((target)) {
+        if (!status.canTransTo(target)) {
             throw new IllegalArgumentException();
         }
         status = target;
@@ -94,7 +94,7 @@ public final class PensApp {
     public String toString() {
         StringBuilder sb = new StringBuilder()
                 .append("Заявление №").append(id)
-                .append(" от ").append(createdAt.format(DATE_TIME_FORMAT))
+                .append(" от ").append(createdAt.format(DATE_TIME_FORMATTER))
                 .append(" ").append(applicant.getFullName())
                 .append(" ").append(status.getTitle());
         getReviewer().ifPresent(r -> sb.append(" рассматривает: ").append(r.getFullName()));
