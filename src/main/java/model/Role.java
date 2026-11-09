@@ -2,7 +2,7 @@ package model;
 
 public enum Role {
     CLIENT("Пользователь"),
-    ADMIN("Aдминистратор");
+    ADMIN("Администратор");
 
     private final String title;
 

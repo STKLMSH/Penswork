@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public final class InputReader {
     private static final DateTimeFormatter DATE_FORMAT =
-            DateTimeFormatter.ofPattern("dd.MM.yyyy").withResolverStyle(ResolverStyle.STRICT);
+            DateTimeFormatter.ofPattern("dd.MM.uuuu").withResolverStyle(ResolverStyle.STRICT);
     private final Scanner scanner;
     private final PrintStream out;
 
@@ -30,7 +30,7 @@ public final class InputReader {
             if (!value.isEmpty()) {
                 return value;
             }
-            out.println("Значение не можут быть пустым");
+            out.println("Значение не может быть пустым");
         }
     }
 

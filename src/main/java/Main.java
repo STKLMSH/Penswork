@@ -16,10 +16,10 @@ void main() {
             new StandardCalculator(),
             new ConsoleNotifier());
 
-    Client client = new Client(1, "@sunboy", "Геннадий Герасимович", "301016A001PB1");
-    client.getEmployHistory().addRecord("000 Отмыв", "Продавец-консультант",
+    Client client = new Client(1, "@sunboy", "Геннадий Герасимович", "3010160A001PB1");
+    client.getEmployHistory().addRecord("OOO Отмыв", "Продавец-консультант",
             LocalDate.of(1999, 5, 24), LocalDate.of(2009, 6, 7), new BigDecimal("1000"));
-    client.getEmployHistory().addRecord("000 Греб", "Старший продавец-консультант",
+    client.getEmployHistory().addRecord("OOO Греб", "Старший продавец-консультант",
             LocalDate.of(2009, 9, 11), null,  new BigDecimal("2000.00"));
     Admin admin = new Admin(100, "admin", "Владимир Владимирович");
 

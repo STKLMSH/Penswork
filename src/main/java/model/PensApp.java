@@ -99,7 +99,7 @@ public final class PensApp {
                 .append(" ").append(status.getTitle());
         getReviewer().ifPresent(r -> sb.append(" рассматривает: ").append(r.getFullName()));
         getAssignedAmount().ifPresent(a -> sb.append(" пенсия: ").
-                append(a.toPlainString()).append(a.toPlainString()).append(" BYN"));
+                append(a.toPlainString()).append(" BYN"));
         getRejectionReason().ifPresent(r -> sb.append(" причина отказа: ").append(r));
         return sb.toString();
     }

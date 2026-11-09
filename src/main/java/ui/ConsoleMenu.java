@@ -51,7 +51,7 @@ public final class ConsoleMenu {
         out.println("4 - Подать заявление на пенсию");
         out.println("5 - Мои заявления");
         out.println(" Администратор: " + admin.getFullName());
-        out.println("6 - Все заявдения");
+        out.println("6 - Все заявления");
         out.println("7 - Открыть заявление");
         out.println("8 - Одобрить");
         out.println("9 - Отклонить");
@@ -117,7 +117,7 @@ public final class ConsoleMenu {
         out.println("Стаж: " + forecast.insuranceYears() + " полных лет");
         if (forecast.eligible()) {
             out.println("Коэффициент замещения: " + forecast.replacementRate().movePointRight(2).stripTrailingZeros().toPlainString());
-            out.println("Прогноз пенсии: " + forecast.monthlyAmount().toPlainString() + "BYN/мес.");
+            out.println("Прогноз пенсии: " + forecast.monthlyAmount().toPlainString() + " BYN/мес.");
         } else {
             out.println("Недостаточно стажа");
         }
