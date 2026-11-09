@@ -24,7 +24,7 @@ public final class EmployHistory {
                     throw new IllegalArgumentException();
                 });
         records.add(record);
-        records.sort((a, b) -> a.getStartDate().compareTo(b.getStartDate())));
+        records.sort((a, b) -> a.getStartDate().compareTo(b.getStartDate()));
         return record;
     }
 
