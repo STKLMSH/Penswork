@@ -72,7 +72,7 @@ public final class InputReader {
                 }
             } catch (NumberFormatException ignored) {
             }
-            out.println("Введите полож сумму");
+            out.println("Введите положительную сумму");
         }
     }
 

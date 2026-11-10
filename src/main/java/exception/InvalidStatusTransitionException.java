@@ -6,7 +6,7 @@ public class InvalidStatusTransitionException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     public InvalidStatusTransitionException(long appId, AppStatus from, AppStatus to) {
-        super(String.format("Заялвение №%d: переход из %s в %s недопустим",
+        super(String.format("Заявление №%d: переход из %s в %s недопустим",
                 appId, from.getTitle(), to.getTitle()));
     }
 }

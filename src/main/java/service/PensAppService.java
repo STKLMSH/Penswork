@@ -46,7 +46,7 @@ public final class PensAppService {
         app.startReview(admin);
         repository.save(app);
         notifier.notify(app.getApplicant(),
-                "Заялвение №" + appId + " взято на проверку");
+                "Заявление №" + appId + " взято на проверку");
         return app;
     }
 
@@ -70,7 +70,7 @@ public final class PensAppService {
         app.reject(reason);
         repository.save(app);
         notifier.notify(app.getApplicant(),
-            "Заявление №" + appId + " отклоненно: " + reason.trim());
+            "Заявление №" + appId + " отклонено: " + reason.trim());
         return app;
     }
 

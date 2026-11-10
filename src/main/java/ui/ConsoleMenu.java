@@ -103,7 +103,7 @@ public final class ConsoleMenu {
     }
 
     private void addEmployRecord() {
-        String employer = input.readNonBlank("Работадатель: ");
+        String employer = input.readNonBlank("Работодатель: ");
         String position = input.readNonBlank("Должность: ");
         LocalDate start = input.readDate("Дата приема: ");
         LocalDate end = input.readOptionalDate("Дата увольнения: ");
@@ -116,7 +116,7 @@ public final class ConsoleMenu {
         PensForecast forecast = service.forecast(client);
         out.println("Стаж: " + forecast.insuranceYears() + " полных лет");
         if (forecast.eligible()) {
-            out.println("Коэффициент замещения: " + forecast.replacementRate().movePointRight(2).stripTrailingZeros().toPlainString());
+            out.println("Коэффициент замещения: " + forecast.replacementRate().movePointRight(2).stripTrailingZeros().toPlainString() + " %");
             out.println("Прогноз пенсии: " + forecast.monthlyAmount().toPlainString() + " BYN/мес.");
         } else {
             out.println("Недостаточно стажа");
