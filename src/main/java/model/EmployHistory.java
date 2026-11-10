@@ -21,7 +21,7 @@ public final class EmployHistory {
                 .filter(record::overlaps)
                 .findFirst()
                 .ifPresent(existing -> {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Период пересекается с записью: " + existing);
                 });
         records.add(record);
         records.sort((a, b) -> a.getStartDate().compareTo(b.getStartDate()));

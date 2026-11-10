@@ -20,7 +20,7 @@ public final class PensApp {
 
     public PensApp(long id, Client applicant) {
         if (applicant == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Не указан заявитель!");
         }
         this.id = id;
         this.applicant = applicant;
@@ -29,7 +29,7 @@ public final class PensApp {
 
     public void startReview(Admin admin) {
         if (admin == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Не указан администратор!");
         }
         changeStatus(AppStatus.CHECK);
         this.reviewer = admin;
@@ -37,7 +37,7 @@ public final class PensApp {
 
     public void approve(BigDecimal amount) {
         if (amount == null || amount.signum() <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Размер пенсии не должен быть ниже нуля!");
         }
         changeStatus(AppStatus.APPROVED);
         this.assignedAmount = amount;
@@ -45,7 +45,7 @@ public final class PensApp {
 
     public void reject(String reason) {
         if (reason == null || reason.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Укажите причину отказа");
         }
         changeStatus(AppStatus.REJECTED);
         this.rejectionReason = reason.trim();
@@ -57,7 +57,7 @@ public final class PensApp {
 
     private void changeStatus(AppStatus target) {
         if (!status.canTransTo(target)) {
-            throw new IllegalArgumentException();
+            throw new InvalidStatusTransitionException(id, status, target);
         }
         status = target;
     }

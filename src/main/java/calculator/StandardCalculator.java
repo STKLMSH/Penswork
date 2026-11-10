@@ -20,7 +20,7 @@ public final class StandardCalculator implements ICalculator {
 
     public StandardCalculator(int minInsuranceYears) {
         if (minInsuranceYears < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Минимальный стаж не может быть отрицательным!");
         }
         this.minInsuranceYears = minInsuranceYears;
     }

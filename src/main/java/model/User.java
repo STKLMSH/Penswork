@@ -9,10 +9,10 @@ public abstract class User {
 
     protected User (long id, String login, String fullName) {
         if (login == null || login.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Поле Логин не может быть пустым!");
         }
         if (fullName == null || fullName.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Поле ФИО не может быть пустым!");
         }
         this.id = id;
         this.login = login.trim();

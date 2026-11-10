@@ -20,22 +20,22 @@ public final class EmployRecord {
                      LocalDate startDate, LocalDate endDate,
                      BigDecimal monthlySalary) {
         if (employer == null || employer.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Не указан работадатель!");
         }
         if (position == null || position.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Не указана должность!");
         }
         if (startDate == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Не указана дата приема!");
         }
         if (startDate.isAfter(LocalDate.now())) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Дата приема введена неверно!");
         }
         if (endDate != null && !endDate.isAfter(startDate)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Дата увольнения должны быть позже даты приема!");
         }
         if (monthlySalary == null || monthlySalary.signum() <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Заработок не должен уходить в минус!");
         }
         this.employer = employer.trim();
         this.position = position.trim();

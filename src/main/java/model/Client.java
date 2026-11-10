@@ -7,7 +7,7 @@ public final class Client extends User {
     public Client (long id, String login, String fullName, String number) {
         super (id, login, fullName);
         if (number == null || !number.matches("[0-9A-Z]{14}")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Неправильный идентификационный номер!");
         }
         this.number = number;
     }
