@@ -12,6 +12,7 @@ public final class PensApp {
 
     private final long id;
     private final Client applicant;
+    private final PensionType pensionType;
     private final LocalDateTime createdAt;
     private AppStatus status = AppStatus.QUEUED;
     private Admin reviewer;
@@ -22,8 +23,12 @@ public final class PensApp {
         if (applicant == null) {
             throw new IllegalArgumentException("Не указан заявитель!");
         }
+        if (pensionType == null) {
+            throw new IllegalArgumentException("Не указан вид пенсии!");
+        }
         this.id = id;
         this.applicant = applicant;
+        this.pensionType = pensionType;
         this.createdAt = LocalDateTime.now();
     }
 
@@ -70,6 +75,10 @@ public final class PensApp {
         return applicant;
     }
 
+    public PensionType() {
+        return pensionType;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -96,7 +105,8 @@ public final class PensApp {
                 .append("Заявление №").append(id)
                 .append(" от ").append(createdAt.format(DATE_TIME_FORMATTER))
                 .append(" ").append(applicant.getFullName())
-                .append(" ").append(status.getTitle());
+                .append(" ").append(status.getTitle())
+                .append(" (").append(pensionType.getTitle()).append(")");
         getReviewer().ifPresent(r -> sb.append(" рассматривает: ").append(r.getFullName()));
         getAssignedAmount().ifPresent(a -> sb.append(" пенсия: ").
                 append(a.toPlainString()).append(" BYN"));
