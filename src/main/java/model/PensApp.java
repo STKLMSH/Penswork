@@ -19,7 +19,7 @@ public final class PensApp {
     private BigDecimal assignedAmount;
     private String rejectionReason;
 
-    public PensApp(long id, Client applicant) {
+    public PensApp(long id, Client applicant, PensionType pensionType) {
         if (applicant == null) {
             throw new IllegalArgumentException("Не указан заявитель!");
         }
@@ -75,9 +75,7 @@ public final class PensApp {
         return applicant;
     }
 
-    public PensionType() {
-        return pensionType;
-    }
+    public PensionType getPensionType() { return pensionType; }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

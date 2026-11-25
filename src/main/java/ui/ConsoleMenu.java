@@ -65,7 +65,7 @@ public final class ConsoleMenu {
                 case 1 -> showEmploymentHistory();
                 case 2 -> addEmployRecord();
                 case 3 -> showForecast();
-                case 4 -> out.println("Подано: " + service.submit(client));
+                case 4 -> out.println("Подано: " + service.submit(client, input.readPensionType()));
                 case 5 -> printApp(service.findByApplicant(client));
                 case 6 -> printApp(service.findAll());
                 case 7 -> out.println("Обновлено: " + service.startReview(input.readId("Номер заявления: "), admin));
@@ -113,7 +113,9 @@ public final class ConsoleMenu {
     }
 
     private void showForecast() {
-        PensForecast forecast = service.forecast(client);
+        PensionType type = input.readPensionType();
+        PensForecast forecast = service.forecast(client, type);
+        out.println("Вид пенсии: " + type.getTitle());
         out.println("Стаж: " + forecast.insuranceYears() + " полных лет");
         if (forecast.eligible()) {
             out.println("Коэффициент замещения: " + forecast.replacementRate().movePointRight(2).stripTrailingZeros().toPlainString() + " %");

@@ -15,7 +15,7 @@ import java.util.List;
 
 public final class PensAppService {
     private final AppRep repository;
-    private final ICalculator calculator;
+    private final CalculatorFactory calculatorFactory;
     private final Notifier notifier;
 
     public PensAppService(AppRep repository, CalculatorFactory calculatorFactory, Notifier notifier) {
