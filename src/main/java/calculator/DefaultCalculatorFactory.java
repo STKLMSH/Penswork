@@ -7,7 +7,7 @@ public final class DefaultCalculatorFactory implements  CalculatorFactory {
     @Override
     public ICalculator create(PensionType type) {
         if (type == null) {
-            throw new IllegalStateException("Не указан вид пенсии!");
+            throw new IllegalArgumentException("Не указан вид пенсии!");
         }
         return switch (type) {
             case STANDARD -> new StandardCalculator();
