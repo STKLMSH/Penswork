@@ -1,5 +1,7 @@
 package ui;
 
+import model.PensionType;
+
 import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -121,5 +123,11 @@ public final class InputReader {
         } catch (DateTimeParseException e) {
             return null;
         }
+    }
+
+    public PensionType readPensionType() {
+        out.println("Вид пенсии: 1 - по возрасту, 2 - льготная");
+        int choice = readInt("Выберите вид: ", 1, 2);
+        return choice == 1 ? PensionType.STANDARD : PensionType.PREFERENTIAL;
     }
 }

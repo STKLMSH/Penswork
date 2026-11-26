@@ -1,4 +1,4 @@
-import calculator.StandardCalculator;
+import calculator.DefaultCalculatorFactory;
 import model.*;
 import notification.*;
 import repository.InMemoryAppRep;
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 void main() {
     PensAppService service = new PensAppService(
             new InMemoryAppRep(),
-            new StandardCalculator(),
+            new DefaultCalculatorFactory(),
             new ConsoleNotifier());
 
     Client client = new Client(1, "@sunboy", "Геннадий Герасимович", "3010160A001PB1");
